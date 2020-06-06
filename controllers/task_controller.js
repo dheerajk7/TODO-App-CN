@@ -21,27 +21,31 @@ module.exports.createTask = async function(request,response)
     }
 }
 
-//deleting a task using Ajax call
-module.exports.deleteTask = async function(request,response)
+module.exports.delete = async function(request,response)
 {
     try
     {
-        let task = await Task.findById(request.params.id);
-        if(task)
+        //iterating over array of id and deleting that items
+        for(item of request.query.info)
         {
-            let deleteTask = await Task.deleteOne({_id:task._id});
-            return response.redirect('back');
+            await Task.findByIdAndDelete(item);
         }
-        else
+        if(request.xhr)
         {
-            console.log('Error in deleting task');
-            return response.redirect('back');
+            return response.status(200).json(
+                {
+                    message:'Deleted Successfully'
+                }
+            );
         }
-    
+        return response.redirect('/');
     }
     catch(err)
     {
-        console.log('Error in deleting task');
-        return response.redirect('back');
+        return response.status(500).json(
+            {
+                message:'Internal Server Error',
+            }
+        );
     }
 }

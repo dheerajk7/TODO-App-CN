@@ -15,6 +15,18 @@ app.set('views','./views');
 //using router 
 app.use('/',require('./routes/index.js'));
 
+//setting up scss
+const sassMiddleware = require('node-sass-middleware');
+app.use(sassMiddleware(
+    {
+        src:'./assets/scss',
+        dest:'./assets/css',
+        debug:true,
+        outputStyle:'compressed',
+        prefix:'/css/'
+    }
+));
+
 //running server
 app.listen(port,function(err)
 {

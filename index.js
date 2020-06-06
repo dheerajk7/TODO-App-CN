@@ -3,7 +3,7 @@ const port = 8000;
 const app = express();
 
 //parsing form data
-app.use(express.urlencoded());
+app.use(express.urlencoded({useNewUrlParser:true}));
 
 //using static files
 app.use(express.static('./assets'));
@@ -17,6 +17,9 @@ app.use('/',require('./routes/index.js'));
 
 //setting up scss
 const sassMiddleware = require('node-sass-middleware');
+
+//connecting to database
+const db = require('./config/mongoose');
 app.use(sassMiddleware(
     {
         src:'./assets/scss',

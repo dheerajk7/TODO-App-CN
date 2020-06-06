@@ -2,6 +2,10 @@ const express = require('express');
 const port = 8000;
 const app = express();
 
+//setting template engine
+app.set('viwe engine','ejs');
+app.set('views','./views');
+
 //running server
 app.listen(port,function(err)
 {

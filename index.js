@@ -17,18 +17,20 @@ app.use('/',require('./routes/index.js'));
 
 //setting up scss
 const sassMiddleware = require('node-sass-middleware');
-
-//connecting to database
-const db = require('./config/mongoose');
 app.use(sassMiddleware(
     {
         src:'./assets/scss',
         dest:'./assets/css',
         debug:true,
+        indentedSyntax:false,
+        force:true,
         outputStyle:'compressed',
         prefix:'/css/'
     }
 ));
+
+//connecting to database
+const db = require('./config/mongoose');
 
 //running server
 app.listen(port,function(err)

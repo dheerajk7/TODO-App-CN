@@ -1,4 +1,7 @@
-module.exports.home = function(request,response)
+const Task = require('../models/task');
+
+module.exports.home = async function(request,response)
 {
-    return response.render('home');
+    let task = await Task.find({}).sort('-createdAt');
+    return response.render('home',{tasks:task});
 }

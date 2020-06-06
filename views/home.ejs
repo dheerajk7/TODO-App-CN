@@ -4,6 +4,46 @@
         <link rel="stylesheet" href="/css/home.css">
     </head>
     <body>
-        <h1>Dheeraj Kushwah</h1>
+        <h1>TODO App</h1>
+        <form action="task/create-task" id="task-input" method="POST">
+            <label for="desc">Description</label>
+            <br>
+            <input type="text" name="desc" id="desc" required>
+            <br>
+            <label for="category">Choose category: </label>
+            <select name="category" id="category" required>
+                <option value="personal">Personal</option>
+                <option value="work">Work</option>
+                <option value="school">School</option>
+                <option value="cleaning">Cleaning</option>
+                <option value="other">Other</option>
+            </select>
+            <br>
+            <label for="date">Date</label>
+            <br>
+            <input type="date" name="date" id="date">
+            <br>
+            <input type="submit" value="submit">
+            <br>
+        </form>
+        <br>
+        <button id="delete">Delete</button>
+        <br>
+        <ul style="list-style: none;">
+            <% for(task of tasks) { %>
+                <li id="item-<%= task.id %>" class="item" style="border: 2px solid black;border-radius: 10px;margin: 5px;">
+                    <input class="checkbox" id="<%= task.id %>" type="checkbox"></div>
+                    <br>
+                    <div><%= task.description %></div>
+                    <br>
+                    <div><%= task.category %></div>
+                    <br>
+                    <div><%= task.date %></div>
+                    <br>
+                </li>
+            <% } %> 
+        </ul>
     </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/home.js"></script>
 </html>

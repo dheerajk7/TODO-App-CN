@@ -1,1 +1,221 @@
-body{margin:0;text-align:center;background-color:lightgrey}body h1{color:blueviolet;background-color:seashell}
+body
+{
+    margin:0;
+    background-color:lightgrey;
+    display: flex;
+    justify-content: center;
+}
+
+/* main container of todo app */
+#todo-container
+{
+    background-color: whitesmoke;
+    width: 60%;
+    background-image: linear-gradient(45deg, #fadcdc,white, #56545400);
+    
+}
+
+/* page heading */
+#main-heading
+{
+    /* border: 2px solid blue; */
+    font-size: 3rem;
+    font-weight: bolder;
+    padding: 1%;
+    color: darkblue;
+    text-align: center;
+}
+
+/* input container for task */
+#task-input-container
+{
+    display: flex;
+    flex-direction: column;
+}
+
+/* task input form */
+#new-task-form
+{
+    margin-block-end:0;
+}
+/* description container */
+#desc-container
+{
+    border:2px solid rgba(225, 230, 226,0.5);
+    display: flex;
+    flex-direction: column;
+    padding:1%;
+}
+
+/* label heading styles */
+.label-heading
+{
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #ff6737;
+    padding: 1%;
+}
+
+/* input tag styles */
+.input-style
+{
+    height: 35px;
+    border: none;
+    background: whitesmoke;
+    border-radius: 10px;
+    font-size: 1rem;
+    opacity: 0.8;
+    color: navy;
+    font-family: cursive;
+    font-weight: 700;
+    transition: 0.3s all ease-in-out;
+}
+
+.input-style:focus
+{
+    outline: none;
+    box-shadow: 0px 1px 0px 1px lightpink;
+}
+
+/* dropdown option style */
+.options
+{
+    color: darkblue;
+    background-color: rgba(255, 186, 186, 0.5);
+}
+/* container for category and date both */
+#category-date-container
+{
+    border:2px solid rgba(225, 230, 226,0.5);
+    border-top: none;
+    /* border:2px solid magenta; */
+    display: flex;
+    align-items: center;
+}
+
+/* category-container */
+#category-container
+{
+    /* border:2px dotted mediumseagreen; */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+}
+
+/* date container */
+#date-container
+{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    /* border:2px dotted yellow; */
+    padding: 1%;
+}
+
+/* button container for delete and Add */
+#button-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    /* border:2px solid maroon; */
+}
+
+/* button style */
+.button
+{
+    color: #e2ffeb;
+    background: lightcoral;
+    padding: 0.5%;
+    font-size: 1.8rem;
+    margin: 1.5%;
+    width: 32%;
+    font-family: cursive;
+    font-weight: 900;
+    border:none;
+    border-radius: 4px;
+}
+
+.button:focus
+{
+    outline-width: 0px;
+}
+
+/* add button customized style */
+#add
+{
+    background-image: linear-gradient(45deg, #177400,#0aff46);
+    box-shadow: 0px 1px 2px 1px green;
+}
+
+/* when add button is clicked */
+#add:focus
+{
+    border: none;
+    box-shadow: 0px 2px 4px 1px green;
+}
+
+/* delete button styles */
+#delete
+{
+    background-image: linear-gradient(45deg, #b40000,#c10808,#ff2d00);
+    box-shadow: 0px 1px 2px 1px red;
+}
+
+/* when delete button is cliked */
+#delete:focus
+{
+    border: none;
+    box-shadow: 0px 2px 4px 1px red;
+}
+
+/* container for list of task fetched from database */
+#task-list-container
+{
+    /* border:2px solid navy; */
+}
+
+/* ul list of task */
+#task-list
+{
+    padding: 0;
+    border:2px solid red;
+}
+/* for every item in task list container */
+.item
+{
+    display: flex;
+    border:2px solid green;
+}
+
+/* for checkbox in every task */
+.checkbox-container
+{
+    border:2px dashed salmon;
+}
+
+/* for every task description */
+.item-description-container
+{
+    border:2px dashed violet;
+}
+
+/* description of task */
+.task-description
+{
+    border:2px solid firebrick;
+}
+
+/* task date */
+.task-date
+{
+    border:2px solid chartreuse;
+}
+
+/* category of each item */
+.item-category-container
+{
+    border:2px dashed cyan;
+}

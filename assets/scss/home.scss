@@ -3,10 +3,11 @@ body
     margin:0;
     text-align: center;
     background-color: lightgrey;
+    display: flex;
+    justify-content: center;
+}
 
-    h1
-    {
-        color: blueviolet;
-        background-color: seashell;
-    }
+#todo-container
+{
+    width: 60%;
 }

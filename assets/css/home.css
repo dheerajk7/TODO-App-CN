@@ -15,10 +15,49 @@ body
     
 }
 
+/* media queries to manage size of main todo container on various pixel sizes */
+@media screen and (max-width: 1100px)
+{
+	#todo-container
+	{
+		width: 70%;
+	}
+}
+
+@media screen and (max-width: 950px)
+{
+	#todo-container
+	{
+		width: 80%;
+	}
+}
+
+@media screen and (max-width: 800px)
+{
+	#todo-container
+	{
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 700px)
+{
+	#todo-container
+	{
+		width: 95%;
+	}
+}
+
+@media screen and (max-width: 550px)
+{
+	#todo-container
+	{
+		width: 99%;
+	}
+}
 /* page heading */
 #main-heading
 {
-    /* border: 2px solid blue; */
     font-size: 3rem;
     font-weight: bolder;
     padding: 1%;
@@ -83,12 +122,12 @@ body
     color: darkblue;
     background-color: rgba(255, 186, 186, 0.5);
 }
+
 /* container for category and date both */
 #category-date-container
 {
     border:2px solid rgba(225, 230, 226,0.5);
     border-top: none;
-    /* border:2px solid magenta; */
     display: flex;
     align-items: center;
 }
@@ -96,7 +135,6 @@ body
 /* category-container */
 #category-container
 {
-    /* border:2px dotted mediumseagreen; */
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -109,7 +147,6 @@ body
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    /* border:2px dotted yellow; */
     padding: 1%;
 }
 
@@ -119,8 +156,6 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1%;
-    /* border:2px solid maroon; */
 }
 
 /* button style */
@@ -130,12 +165,21 @@ body
     background: lightcoral;
     padding: 0.5%;
     font-size: 1.8rem;
-    margin: 1.5%;
+    margin: 1%;
     width: 32%;
     font-family: cursive;
     font-weight: 900;
     border:none;
     border-radius: 4px;
+}
+
+/* media query to reduce font size of button when size is less then 700px */
+@media screen and (max-width: 700px)
+{
+	.button
+	{
+		font-size: 1.4rem;
+	}
 }
 
 .button:focus
@@ -157,6 +201,13 @@ body
     box-shadow: 0px 2px 4px 1px green;
 }
 
+/* container for delete button */
+#delete-button-container
+{
+    position: relative;
+    left: 32.5%;
+}
+
 /* delete button styles */
 #delete
 {
@@ -174,48 +225,102 @@ body
 /* container for list of task fetched from database */
 #task-list-container
 {
-    /* border:2px solid navy; */
+    list-style: none;
 }
 
 /* ul list of task */
 #task-list
 {
     padding: 0;
-    border:2px solid red;
 }
 /* for every item in task list container */
 .item
 {
     display: flex;
-    border:2px solid green;
+    padding: 1%;
+    margin:1% 1% 1% 1%;
+    border-radius: 4px;
+    background-image:linear-gradient(45deg, #ffddf8,#ffd3ee,#f7fffc);
 }
 
 /* for checkbox in every task */
 .checkbox-container
 {
-    border:2px dashed salmon;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: 5%;
+}
+
+.checkbox
+{
+    height: 20px;
+    width: 20px;
 }
 
 /* for every task description */
 .item-description-container
 {
-    border:2px dashed violet;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    flex-grow: 1;
+    padding-left: 3%;
 }
 
 /* description of task */
 .task-description
 {
-    border:2px solid firebrick;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding:1%;
+    color: #d03d0f;
+    font-family: sans-serif;
+}
+
+.checkbox:checked{
+    background-color:red;
 }
 
 /* task date */
 .task-date
 {
-    border:2px solid chartreuse;
+    color: #00022b;
+    padding:0.5%;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    font-family: cursive;
+    font-style: italic;
+}
+
+/* category container of each item */
+.item-category-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
 }
 
 /* category of each item */
-.item-category-container
+.category
 {
-    border:2px dashed cyan;
+    text-align: center;
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 10%;
+    border-radius: 3px;
+    opacity: 0.9;
+    font-weight: 600;
+}
+
+/* media query to reduce font size of category when size is less then 700px */
+@media screen and (max-width: 700px)
+{
+	.category
+	{
+		font-size: 0.8rem;
+	}
 }

@@ -22,6 +22,7 @@ module.exports.createTask = async function(request,response)
         };
         let dateString = request.body.date;
         let dateArray = dateString.split('-');
+        //converting month into required format and then saving into database
         let finalDateString = dateArray[2] + '-'+ month[dateArray[1]]+ '-' + dateArray[0];
         let task = await Task.create(
             {
@@ -52,7 +53,7 @@ module.exports.createTask = async function(request,response)
     }
 }
 
-
+//deleting task
 module.exports.delete = async function(request,response)
 {
     try

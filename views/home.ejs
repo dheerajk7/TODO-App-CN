@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>TODO App | Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/css/home.css">
     </head>
     <body>
@@ -30,12 +31,15 @@
                     </div>
                     <div id="button-container">
                         <input class="button" id="add" type="submit" value="Add Task">
-                        <button class="button" id="delete">Delete</button>
                     </div>
                 </form>
+                <div id="delete-button-container">
+                    <button class="button" id="delete">Delete</button>
+                </div>
+                
             </div>
             <div id="task-list-container">
-                <ul style="list-style: none;" id="task-list">
+                <ul id="task-list">
                     <% for(task of tasks) { %>
                         <li id="item-<%= task.id %>" class="item">
                             <div class="checkbox-container">
@@ -46,7 +50,7 @@
                                 <div class="task-date"><%= task.date %></div>
                             </div>
                             <div class="item-category-container">
-                                <div><%= task.category %></div>
+                                <div class="category"><%= task.category %></div>
                             </div>
                         </li>
                     <% } %> 

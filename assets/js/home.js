@@ -1,4 +1,26 @@
+let color = {
+    'Personal':{'background':'yellow','text':'blue'},
+    'Work':{'background':'navajowhite','text':'black'},
+    'School':{'background':'aquamarine','text':'blue'},
+    'Cleaning':{'background':'black','text':'white'},
+    'Other':{'background':'navy','text':'whitesmoke'},
+};
 
+//function to change color of category mention in list container according to category
+function changeCategoryColor()
+{
+    let categories = document.querySelectorAll('.category');
+    for(category of categories)
+    {
+        let eleCategory = category.textContent;
+        category.style.backgroundColor = color[eleCategory]['background'];
+        category.style.color = color[eleCategory]['text'];
+    }
+}
+
+changeCategoryColor();
+
+//function to creat a task in database and appending DOM of new task in main task list
 let createTask = function()
 {
     let newTaskForm = $('#new-task-form');
@@ -25,18 +47,23 @@ let createTask = function()
     });
 }
 
+//function to create DOM of new task when new task is added
 let createTaskDOM = function(task)
 {
+    let category = task.category;
+    
     return $(
-        `<li id="item-${task._id}" class="item" style="border: 2px solid black;border-radius: 10px;margin: 5px;">
-        <input class="checkbox" id="${task._id}" type="checkbox"></div>
-        <br>
-        <div>${task.description}</div>
-        <br>
-        <div>${task.category}</div>
-        <br>
-        <div>${task.date}</div>
-        <br>
+        `<li id="item-${task._id}" class="item">
+        <div class="checkbox-container">
+            <input class="checkbox" id="${task._id}" type="checkbox">
+        </div>
+        <div class="item-description-container">
+            <div class="task-description">${task.description}</div>
+            <div class="task-date">${task.date}</div>
+        </div>
+        <div class="item-category-container">
+            <div class="category" style="background-color:${color[category]['background']};color:${color[category]['text']};">${task.category}</div>
+        </div>
     </li>`
     );
 }

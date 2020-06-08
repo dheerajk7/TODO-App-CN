@@ -37,6 +37,7 @@ let createTask = function()
                 {
                     let newTaskDOM = createTaskDOM(data.data.task);
                     $('#task-list').prepend(newTaskDOM);
+                    addListener(data.data.task._id);
                 },
                 error:function(data)
                 {
@@ -102,3 +103,38 @@ $('#delete').click(function()
         $(`#item-${id}`).remove();
     }
 });
+
+//adding line-through or hidding category on checkbox condition
+let changeAppearance = (id,status) =>
+{
+    let listItem = document.getElementById('item-'+id);
+    let childNodes = listItem.childNodes;
+    if(status == true)
+    {
+        childNodes[3].style.textDecoration = 'line-through';
+        childNodes[5].style.opacity = '0';
+    }
+    else
+    {
+        childNodes[3].style.textDecoration = 'none';
+        childNodes[5].style.opacity = '1';
+    }
+}
+
+//adding event listner to all the checkbox
+let addListener = (id) =>
+{
+    var element = document.getElementById(id);
+    element.addEventListener('click',function()
+    {
+        changeAppearance(this.id,this.checked);
+    });
+}
+
+//getting all the checkbox and calling function to add event listner on all of them
+var check = document.querySelectorAll('.checkbox');
+for(var i=0;i<check.length;i++)
+{
+    addListener(check[i].id);
+}
+
